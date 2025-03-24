@@ -1,0 +1,235 @@
+{% extends "base.html" %} 
+{% block title %}ಹಳೆಗನ್ನಡದಿಂದ ಹೊಸಗನ್ನಡಕ್ಕೆ ಪದ್ಯ ಅನುವಾದ{% endblock %} 
+
+{% block content %}
+{% if  content %}
+<div class="mb-3">
+    <div class="container mt-3 shadow-lg mb-3" id="form1">
+
+        <form method="post" class="form-floating mt-5 mb-5">
+            <h1 style="padding-left: 5%;">ಹಳೆಗನ್ನಡದಿಂದ ಹೊಸಗನ್ನಡಕ್ಕೆ</h1>
+            <h1 style="padding-left: 25%;">ಪದ್ಯ ಅನುವಾದ</h1>
+            
+            <div class="d-grid gap-2 col-8 mx-auto mt-3">
+                <h2>ನಿಮ್ಮ ಪದ್ಯ ಇಲ್ಲಿ ಸೇರಿಸಿ</h2>
+            </div>   
+            
+            <textarea style="height:5cm;" class="form-control" id="exampleFormControlTextarea1" name="tpoem" rows="3"></textarea>
+
+            <div class="d-grid gap-2 col-6 mx-auto mt-3" style="padding-left: 12%;">
+                <button class="btn btn-primary" type="submit">ಪದ್ಯ ಅನುವಾದ </button>
+            </div>
+        </form>
+
+        <div  id="givenPoem">
+            <h2>ಮೂಲ ಪದ್ಯ</h2>
+            <pre style="align-content: center;">{{ content['original_poem'] }}</pre>
+        </div>
+        <div id="convertedPoemHeader">
+            <h2>ಅನುವಾದಿತ ಪದ್ಯ</h2>
+        </div>
+        <div id="convertedPoem">
+           
+            <pre style="align-content: center;">{{ content['converted_poem'] }}</pre>
+        </div>
+        <div id="PoemHeader">
+            <h2> ಪದ ವಿಭಜಿತ ಪದ್ಯ </h2>
+        </div>
+        <div id="translationDetails">
+            
+            <pre style="align-content: center;">{{ content['translation_details'] }}</pre>
+        </div>
+    </div>
+</div>
+<style>
+    #form1 {
+        border: 2px solid black;
+        border-radius: 4px;
+        width: 17cm;
+        padding-inline: 1cm;
+    }      
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the content of given poem and translation details
+        var givenPoem = document.getElementById("givenPoem").innerText;
+        var translationDetails = document.getElementById("translationDetails").innerText;
+
+        // Split the content into arrays of words
+        var givenPoemWords = givenPoem.split(/\s+/);
+        var translationDetailsWords = translationDetails.split(/\s+/);
+
+        // Create a new element to store the styled content
+        var styledContent = document.createElement("div");
+
+        // Iterate through words and compare
+        for (var i = 0; i < translationDetailsWords.length; i++) {
+            var word = translationDetailsWords[i].trim();
+            var span = document.createElement("span");
+
+            if (!givenPoemWords.includes(word)) {
+                // If the word is not present in givenPoem, apply blue color
+                span.style.color = "blue";
+            }
+
+            // Set the text content of the span and append it to the styled content
+            span.textContent = word + ' ';
+            styledContent.appendChild(span);
+        }
+
+        // Replace the content of translationDetails with the styled content
+        document.getElementById("translationDetails").innerHTML = "";
+        document.getElementById("translationDetails").appendChild(styledContent);
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the content of converted poem and translation details
+        var convertedPoem = document.getElementById("convertedPoem").innerText;
+        var translationDetails = document.getElementById("translationDetails").innerText;
+
+        // Split the content into arrays of words
+        var convertedPoemWords = convertedPoem.split(/\s+/);
+        var translationDetailsWords = translationDetails.split(/\s+/);
+
+        // Create a new element to store the styled content
+        var styledContent = document.createElement("div");
+
+        // Iterate through words and compare
+        for (var i = 0; i < convertedPoemWords.length; i++) {
+            var word = convertedPoemWords[i].trim();
+            var span = document.createElement("span");
+
+            if (!translationDetailsWords.includes(word)) {
+                // If the word is not present in translationDetails, apply green color
+                span.style.color = "MediumSeaGreen";
+            }
+
+            // Set the text content of the span and append it to the styled content
+            span.textContent = word + ' ';
+            styledContent.appendChild(span);
+        }
+
+        // Replace the content of convertedPoem with the styled content
+        document.getElementById("convertedPoem").innerHTML = "";
+        document.getElementById("convertedPoem").appendChild(styledContent);
+    });
+</script>
+
+{% else  %}
+<div class="mb-3">
+    <div class="container mt-3 shadow-lg mb-3" id="form1">
+
+        <form method="post" class="form-floating mt-5 mb-5">
+            <h1 style="padding-left: 5%;">ಹಳೆಗನ್ನಡದಿಂದ ಹೊಸಗನ್ನಡಕ್ಕೆ</h1>
+            <h1 style="padding-left: 25%;">ಪದ್ಯ ಅನುವಾದ</h1>
+            
+            <div class="d-grid gap-2 col-8 mx-auto mt-3">
+                <h2>ನಿಮ್ಮ ಪದ್ಯ ಇಲ್ಲಿ ಸೇರಿಸಿ</h2>
+            </div>   
+            
+            <textarea style="height:5cm;" class="form-control" id="exampleFormControlTextarea1" name="tpoem" rows="3"></textarea>
+
+            <div class="d-grid gap-2 col-6 mx-auto mt-3" style="padding-left: 12%;">
+                <button class="btn btn-primary" type="submit">ಪದ್ಯ ಅನುವಾದ </button>
+            </div>
+        </form>
+
+        <div  id="givenPoem">
+            <h2>ಮೂಲ ಪದ್ಯ</h2>
+            <pre style="align-content: center;"></pre>
+        </div>
+        <div id="convertedPoemHeader">
+            <h2>ಅನುವಾದಿತ ಪದ್ಯ</h2>
+        </div>
+        <div id="convertedPoem">
+           
+            <pre style="align-content: center;"></pre>
+        </div>
+        <div id="PoemHeader">
+            <h2> ಪದ ವಿಭಜಿತ ಪದ್ಯ </h2>
+        </div>
+        <div id="translationDetails">
+            
+            <pre style="align-content: center;"></pre>
+        </div>
+    </div>
+</div>
+<style>
+    #form1 {
+        border: 2px solid black;
+        border-radius: 4px;
+        width: 17cm;
+        padding-inline: 1cm;
+    }      
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the content of given poem and translation details
+        var givenPoem = document.getElementById("givenPoem").innerText;
+        var translationDetails = document.getElementById("translationDetails").innerText;
+
+        // Split the content into arrays of words
+        var givenPoemWords = givenPoem.split(/\s+/);
+        var translationDetailsWords = translationDetails.split(/\s+/);
+
+        // Create a new element to store the styled content
+        var styledContent = document.createElement("div");
+
+        // Iterate through words and compare
+        for (var i = 0; i < translationDetailsWords.length; i++) {
+            var word = translationDetailsWords[i].trim();
+            var span = document.createElement("span");
+
+            if (!givenPoemWords.includes(word)) {
+                // If the word is not present in givenPoem, apply blue color
+                span.style.color = "blue";
+            }
+
+            // Set the text content of the span and append it to the styled content
+            span.textContent = word + ' ';
+            styledContent.appendChild(span);
+        }
+
+        // Replace the content of translationDetails with the styled content
+        document.getElementById("translationDetails").innerHTML = "";
+        document.getElementById("translationDetails").appendChild(styledContent);
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the content of converted poem and translation details
+        var convertedPoem = document.getElementById("convertedPoem").innerText;
+        var translationDetails = document.getElementById("translationDetails").innerText;
+
+        // Split the content into arrays of words
+        var convertedPoemWords = convertedPoem.split(/\s+/);
+        var translationDetailsWords = translationDetails.split(/\s+/);
+
+        // Create a new element to store the styled content
+        var styledContent = document.createElement("div");
+
+        // Iterate through words and compare
+        for (var i = 0; i < convertedPoemWords.length; i++) {
+            var word = convertedPoemWords[i].trim();
+            var span = document.createElement("span");
+
+            if (!translationDetailsWords.includes(word)) {
+                // If the word is not present in translationDetails, apply green color
+                span.style.color = "MediumSeaGreen";
+            }
+
+            // Set the text content of the span and append it to the styled content
+            span.textContent = word + ' ';
+            styledContent.appendChild(span);
+        }
+
+        // Replace the content of convertedPoem with the styled content
+        document.getElementById("convertedPoem").innerHTML = "";
+        document.getElementById("convertedPoem").appendChild(styledContent);
+    });
+</script>
+
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+.mySlides {display:none;}
+</style>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='k1.jpeg') }}">
+    <title>{% block title %}ಕನ್ನಡ {% endblock %}</title>
+  </head>
+  <body>
+    
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg"  >
+     
+      <img class="mt-2 ml-7 mb-3"  src="static\PESU.png">
+      <div class="collapse navbar-collapse justify-content-end" >
+        <div class="navbar-nav justify-content-end"  >
+         
+          <ul class="navbar bg-dark justify-content-end ">
+          <button style="background-color: white;" class="btn btn-light ml-3 mr-3 "> <a class="nav-link" style="color:black" href="#">Home</a></button>
+     
+       
+            <button style="background-color: white;" class="btn btn-light ml-3 mr-3"> <a class="nav-link" style="color:black"  href="#">ಛಂದಸು(Chandasu)</a></button>
+         
+        
+            <button style="background-color: white;" class="btn btn-light ml-3 mr-3"> <a class="nav-link" style="color:black"  href="#">ಪದ್ಯ ಅನುವಾದ (Translation)</a></button>
+     
+        
+          </ul>
+      </div>
+      </div>
+    </nav> -->
+<div >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg" >
+        <a class="navbar-brand" href="#"><img  style="width: 2cm;height:2cm" src="static\k1.jpeg"></a>
+        <a class="navbar-brand" href="#"><img  style="width: 2cm;height:2cm" src="static\k4.jpeg"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <button style="background-color: white;" class="btn btn-light ml-3 mr-3 mt-2 mb-2 "> <a class="nav-link" style="color:black" href="/">Home</a></button>
+            </li>
+            <li class="nav-item">
+                <button style="background-color: white;" class="btn btn-light ml-3 mr-3 mt-2 mb-2 "> <a class="nav-link" style="color:black" href="chandasu">ಛಂದಸ್ಸು(Chandasu)</a></button>
+            </li>
+            <li class="nav-item">
+                <button style="background-color: white;" class="btn btn-light ml-3 mr-3 mt-2 mb-2 "> <a class="nav-link" style="color:black" href="translation">ಪದ್ಯ ಅನುವಾದ (Translation)</a></button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- <ul class="navbar bg-dark justify-content-end shadow-lg">
+       
+           <button style="background-color: white;" class="btn btn-light ml-3 mr-3 "> <a class="nav-link active "  href="#">Home</a></button>
+     
+       
+            <button style="background-color: white;" class="btn btn-light ml-3 mr-3"> <a class="nav-link active "  href="#">ಛಂದಸು(Chandasu)</a></button>
+         
+        
+            <button style="background-color: white;" class="btn btn-light ml-3 mr-3"> <a class="nav-link active "  href="#">ಪದ್ಯ ಅನುವಾದ (Translation)</a></button>
+     
+        
+      </ul> -->
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+    <div class="container">{% block content %} {% endblock %}</div>
+    <style>
+        .navbar-toggler {
+            border: none;
+          }
+          
+          .navbar-toggler:focus {
+            outline: none;
+          }
+          
+          .navbar-nav {
+            margin: 0;
+            padding: 0;
+          }
+          
+          .navbar-nav .nav-item {
+            margin: 0;
+            padding: 0;
+          }
+          
+          .nav-link {
+            color: black !important;
+          }
+          
+          @media (max-width: 991.98px) {
+            .navbar-brand img {
+              max-width: 100px;
+            }
+          }
+          
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    
+    <script
+      type="text/javascript"
+    ></script>
+    <!-- <script type="text/javascript">
+      window.history.forward();
+      function noBack() {
+          window.history.forward();
+      }
+  </script> -->
+  <footer class="bd-footer text-muted shadow-lg mt-5"  >
+    <div class="container-fluid bg-dark row" style="font-style: oblique;font-family:'Courier New', Courier, monospace;color:black;" >
+      <!-- <ul class="bd-footer-links">
+        <li><a >GitHub</a></li>
+        <li><a href="https://twitter.com/getbootstrap">Twitter</a></li>
+        <li><a >Examples</a></li>
+        <li><a >About</a></li>
+      </ul> -->
+      <p class="column mt-2" style="padding-left: 1cm;color:aliceblue">Copyright © Srinivas University, Mangaluru, India.</p>
+      <p class="column mt-2" style="padding-left: 12cm;color:aliceblue"> Any Query write <a >maninb990099@gmail.com</a></p>
+    </div>
+  </footer>
+
+  </body>
+</html>

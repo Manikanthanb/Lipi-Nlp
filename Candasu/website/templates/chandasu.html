@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block title %}ಛಂದಸ್ಸು  {% endblock %} 
+
+{% block content %}
+
+
+
+<!-- <h1 style="text-align: center;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color:rgb(37, 0, 172)" id="pes">PES UNIVERSITY</h1>
+<h2 style="text-align: center;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color:orange"id="pes">DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING</h2>
+<h2 style="text-align: center;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color:rgb(37, 0, 172)"id="pes">CSE INTERNSHIPS </h2> -->
+
+
+  <div class="mb-3">
+    <div class="container mt-3 shadow-lg mb-3" id="form1">
+
+    <form method="post" class="form-floating mt-5 mb-5" >
+        <h1 style="padding-left: 35%;">ಛಂದಸ್ಸು </h1>
+        <div  class="d-grid gap-2 col-8 mx-auto mt-3">
+    <!-- <label for="exampleFormControlTextarea1" class="form-label" style="text-decoration-style:double;font-weight:bold">ನಿಮ್ಮ ಪದ್ಯ ಇಲ್ಲಿಅಂಟಿಸಿ </label> -->
+<h2>ನಿಮ್ಮ ಪದ್ಯ ಇಲ್ಲಿ ಸೇರಿಸಿ</h2>
+</div>   
+<textarea style="height:5cm;" class="form-control" id="exampleFormControlTextarea1" name="cpoem" rows="3"></textarea>
+
+    <div class="d-grid gap-2 col-6 mx-auto mt-3" style="padding-left: 12%;" >
+        <button class="btn btn-primary"  type="submit">ಛಂದಸ್ಸು  ಬಿಡಿಸಿ </button>
+      </div>
+</form>
+<div>
+    <pre style="align-content: center;">
+    {{ content }}
+</pre>
+</div>
+</div>
+  </div>
+
+<!-- <img id="pes-img" src="static\clg.jpeg"/> -->
+<script type="text/javascript">
+    
+</script>
+<style>
+    #form1{
+        border: 2px solid black;
+        border-radius: 4px;
+        width: 17cm;
+        padding-inline:1cm;
+        
+    }      
+</style>
+{% endblock %}

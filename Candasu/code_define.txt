@@ -1,0 +1,54 @@
+class module1:
+	def line_partition(file):
+		This method takes a file object f as input and returns a list of lists containing the individual characters of each line of the file after some 				preprocessing.
+
+		After processing all lines, the code removes any leading or trailing space characters from each line, and writes the final akshara_list to a file 				called "Akshara.txt". It also writes each line to another file called "Normalized.txt".
+
+class module2:
+	def laghu_guru(list_char):
+	This method takes a list of characters as input and returns two lists - lm and lg_list.
+	The purpose of this code is to perform text analysis for Kannada language by identifying whether a character is a "laghu" or "guru" based on the character type.
+
+	The input list contains Kannada characters, and the code analyzes each character and categorizes them into three types - "halant" (represented by 0), "laghu" 	(represented by 1), and "guru" (represented by 2).
+
+	It also uses the deepcopy method from the copy module to create a copy of the list to avoid making changes to the original list.
+
+class module3:
+	def chandasu_pattren():
+		The method iterates through each line of the poem and computes the number of syllables and gana according to the specified pattern. If the computed gana 		and syllable values do not match the expected values, the method returns False. If all lines match the pattern, the method returns True.	
+	def chandassuCondition():
+		The `chandassuCondition` function takes a list of integers `lg_list`, two integer variables `syllable1` and `syllable2`, two string variables `pattern1` 		and `pattern2`, a boolean variable `extraGuru`, and a boolean variable `tsfk` as input. 
+
+		The function creates a `pattern` list and a `stringPattern` string to store the sequence of integers in `lg_list` that add up to `syllable1` or `syllable2		It then loops through each element of `lg_list`, adds the element to the `pattern` list, and appends the element to `stringPattern`. 
+
+		If `tsfk` is True, the function checks if the pattern in `stringPattern` matches `pattern1` or `pattern2` when the sum of elements in `pattern` is equal to 		`syllable1` or `syllable2`. If `tsfk` is False, the function checks if the pattern in `stringPattern` matches specific patterns at specific positions and 		also checks if the pattern matches `pattern1` or `pattern2` when the sum of elements in `pattern` is equal to `syllable1` or `syllable2`. 
+
+		If any of the conditions fail, the function returns `False`. If all the conditions pass, the function returns `True`.
+
+	def kandapadya():
+		This function takes three arguments: akshara_list, lg_list, and lg_dup. The purpose of this function will check wether it satisfies the condition of 			kandapadya  then it prints a message using the 	Print_Master function and returns True. Otherwise, it returns False.
+	def shatpadiMaster():
+		This second function takes seven arguments: lg_list, gana1, gana2, syllable1, syllable2, pattern1, and pattern2. it will check whether the given lg_list 		argument satisfies certain conditions related to the structure of a six-line stanza in Kannada poetry. It returns True if the conditions are satisfied and 		False otherwise.
+
+	def shatpadi():
+		This function takes the same three arguments as the first function. This function is wrapper function that calls shatpadiMaster with different arguments 		depending on certain conditions. If shatpadiMaster returns True for any of these conditions, shatpadi prints a message using the Print_Master function and 		returns True. Otherwise, it returns False.
+
+	def ragale():
+		This functions takes in a list of integers, `lg_list`, which presumably represents a text in Kannada broken down into syllables or words. The functions 		then try to match this list against predefined patterns that correspond to ragale forms in Kannada If a match is found, the program prints out the name of 		the poetic form and returns `True`. Otherwise, it returns `False`.
+
+		The `ragale` function  have three possible matches, corresponding to the three types of Ragale in Kannada poetry: "Utsaha Ragale", "Mandaanila Ragale", and 		"Lalita Ragale". The `ragaleMaster` function is called for each of these matches and tries to match the input list against specific patterns that 			correspond to each type of Ragale.
+
+	def vrutta():
+		This functions takes in a list of integers, `lg_list`, which presumably represents a text in Kannada broken down into syllables or words. The functions 		then try to match this list against predefined patterns that correspond to vrutta forms in Kannada If a match is found, the program prints out the name of 		the poetic form and returns `True`. Otherwise, it returns `False`.
+
+		The `vrutta` function  have six possible matches, corresponding to six specific types of Vrutta in Kannada poetry: "Utpalamala Vrutta", "Champakamala 		Vrutta", "Shardula Vikridita Vrutta", "Mattebha Vikridita Vrutta", "Sragdhara Vrutta", and "Mahasragdhara Vrutta". The `vruttaMaster` function is called 		for each of these matches and tries to match the input list against specific patterns that correspond to each type of Vrutta.
+
+	def chandassu():
+		This function first initializes three empty lists: `akshara_para`, `lg_para`, and `lg_dup`. It then sets the value of `len1` to the length of 				`akshara_list`, and initializes `i` to 0.
+
+		The function then enters a while loop that continues as long as `i` is less than `len1`. Within this while loop, the function enters another while loop 		that continues as long as the length of the string at `akshara_list[i]` is not equal to 0. During each iteration of this inner while loop, the function 		appends the value of `akshara_list[i]` to `akshara_para`, the value of `lg_list[i]` to `lg_para`, and the value of `lm[i]` to `lg_dup`. It then increments 		`i` by 1.
+
+		Once the inner while loop has finished, the function calls several other functions (`kandapadya`, `shatpadi`, `ragale`, and `vrutta`) and passes them 		copies of `akshara_para`, `lg_para`, and `lg_dup`. If any of these functions return `True`, the function resets `akshara_para`, `lg_para`, and `lg_dup` to 		empty lists and increments `i` by 1 before continuing the outer while loop.
+
+		If none of these functions return `True`, the function calls `self.Print_Master` with `akshara_list`, the string "Invalid", the integer 7, `lg_list`, and 		`lm`. It then resets `akshara_para`, `lg_para`, and `lg_dup` to empty lists and increments `i` by 1 before continuing the outer while loop.
+
